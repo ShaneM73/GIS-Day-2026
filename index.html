@@ -53,6 +53,8 @@ body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(
 #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;overflow:hidden;background:var(--bg);transform-origin:50% 50%}
 button{font-family:inherit;color:inherit}
 [hidden]{display:none!important}
+#panel,#side,.pg,.sd,.pg *,.sd *{pointer-events:none}
+.pg :is(button,a,input,select,label,canvas,[role=button],.links,.links *),.sd :is(button,a,input,select,label,canvas,[role=button],.links,.links *),#ag-list li,#ag-list li *{pointer-events:auto}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px}
 #gl{position:absolute;left:0;top:0;width:1920px;height:1080px;display:block;touch-action:none}
 #grain{position:absolute;inset:0;pointer-events:none;background-size:220px;opacity:var(--grainOp);mix-blend-mode:multiply;z-index:12}
@@ -1662,8 +1664,8 @@ function pickAt(e){const[sx,sy]=stageXY(e);ndc.set(sx/1920*2-1,-(sy/1080*2-1));r
 canvas.addEventListener('pointerdown',e=>{if(!drag.touched){drag.az+=orbit;orbit=0;}drag.touched=true;drag.reset=false;drag.active=true;drag.x=drag.x0=e.clientX;drag.y=drag.y0=e.clientY;drag.moved=0;try{canvas.setPointerCapture(e.pointerId);}catch(_){}});
 canvas.addEventListener('pointermove',e=>{const[sx,sy]=stageXY(e);const id=CH[cur].id;
   if(id==='sam'&&SAM.mode==='point'&&!drag.active){ndc.set(sx/1920*2-1,-(sy/1080*2-1));ray.setFromCamera(ndc,cam);samHover(samRayBuilding());}else if(samHov)samHover(null);canvas.style.cursor=(id==='sam'&&SAM.mode==='point')||id==='embed'||id==='h3'||id==='skills'?'pointer':'grab';
-  if(!drag.active)return;drag.moved=Math.max(drag.moved,Math.hypot(e.clientX-drag.x0,e.clientY-drag.y0));if(drag.moved>5){everDragged=true;$('#dragHint').classList.remove('on');drag.az+=(e.clientX-drag.x)/K*.22;drag.el+=(e.clientY-drag.y)/K*.12;}drag.x=e.clientX;drag.y=e.clientY;});
-canvas.addEventListener('pointerup',e=>{if(drag.active&&drag.moved<=5)pickAt(e);drag.active=false;});
+  if(!drag.active)return;drag.moved=Math.max(drag.moved,Math.hypot(e.clientX-drag.x0,e.clientY-drag.y0));if(drag.moved>8){everDragged=true;$('#dragHint').classList.remove('on');drag.az+=(e.clientX-drag.x)/K*.22;drag.el+=(e.clientY-drag.y)/K*.12;}drag.x=e.clientX;drag.y=e.clientY;});
+canvas.addEventListener('pointerup',e=>{if(drag.active&&drag.moved<=8)pickAt(e);drag.active=false;});
 canvas.addEventListener('pointercancel',()=>{drag.active=false;});
 
 /* theme */
