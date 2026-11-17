@@ -30,11 +30,9 @@ Open `index.html` in a desktop browser with WebGL (Chrome or Edge recommended). 
 
 The town, sensors and data in the 3D scenes are illustrative; each chapter's footnote cites its real sources.
 
-## Also in this repo
+## Live demo
 
 - `demo/gisday_live_demo.js`: Earth Engine script for the live demo with real AlphaEarth embeddings around Springfield, MO. Paste it into the [Earth Engine Code Editor](https://code.earthengine.google.com/) and press Run.
-- `talk/script.md`: word-for-word presentation script with click cues.
-- `talk/GeoAI_GIS_Day_2026_script.mp3`: AI-voiced narration of the script, for rehearsal.
 
 ## License
 
