@@ -468,7 +468,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
       </div>
       <div id="sam-point">
         <p class="interaction-hint">Click a roof, a field or the pond</p>
-        <p class="wnote">Click anywhere on the map. One click becomes one mask, the way SAM and SAM 2 work.</p>
+        <p class="wnote">Hover to see what you will select, then click a roof, field or the pond. One click becomes one mask, the way SAM and SAM 2 work.</p>
       </div>
       <div id="sam-text" hidden>
         <p class="interaction-hint">Type a concept (SAM 3)</p>
@@ -967,7 +967,12 @@ function samSet(masks,origin,label){SAM.masks=masks;SAM.origin=origin;SAM.t0=per
   $('#sam-k').textContent=label;const big=masks.reduce((m,o)=>Math.max(m,o.area),0);$('#sam-c').innerHTML=masks.length?fmt(big)+'<small>m²</small>':'—';
   if(!masks.length){BLD.forEach(b=>b.mesh.material.color.copy(b.base));const g=cvSam.getContext('2d');g.clearRect(0,0,GCW,GCH);texSam.needsUpdate=true;}}
 function samPick(x,z){if(Math.abs(x)>W/2||Math.abs(z)>D/2)return null;const hit=OBJ.filter(o=>inPoly(x,z,o.poly)).sort((a,b)=>a.area-b.area)[0];return hit||null;}
-function samPoint(x,z){const o=samPick(x,z);samPin.visible=true;samPin.position.set(x,0,z);SFX.cue('route',o?1:0);
+function samRayBuilding(){const hit=ray.intersectObjects(BLD.map(b=>b.mesh),false)[0];if(!hit)return null;return BLD.find(b=>b.mesh===hit.object)||null;}
+function samPointBuilding(b){const o=OBJ.find(q=>q.b===b);SFX.cue('route',1);samPin.visible=true;samPin.position.set(b.x,b.h,b.z);samSet([o],[b.x,b.z],'point · building');samHover(null);}
+let samHov=null;
+function samHover(b){if(b===samHov)return;if(samHov)samHov.mesh.material.emissive.setHex(0);samHov=b;if(b)b.mesh.material.emissive.set(PAL.glare).multiplyScalar(isDark()?.45:.32);}
+function samSnap(x,z){let best=null,bd=6;BLD.forEach(b=>{const dx=Math.max(Math.abs(x-b.x)-b.w/2,0),dz=Math.max(Math.abs(z-b.z)-b.d/2,0),d=Math.hypot(dx,dz);if(d<bd){bd=d;best=b;}});return best;}
+function samPoint(x,z){const sb=samPick(x,z)?null:samSnap(x,z);if(sb){samPointBuilding(sb);return;}const o=samPick(x,z);samPin.visible=true;samPin.position.set(x,0,z);SFX.cue('route',o?1:0);
   if(!o){samSet([], [x,z],'point');toast('Nothing to segment there. Try a roof, a field or the pond.');return;}
   samSet([o],[x,z],o.kind==='water'?'point · '+o.name:'point · '+o.kind);}
 function samText(k){samPin.visible=false;const ms=OBJ.filter(o=>o.kind===k);samSet(ms,[0,0],'"'+({building:'building',field:'crop field',water:'water'})[k]+'"');$$('#sam-chips .chipb').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===k));}
@@ -1445,7 +1450,7 @@ pin({at:()=>V3(PCX,NET_Y(),-PW/2),t:'Vision encoder',s:'image → patch tokens',
 pin({at:()=>V3(TOKX[1]+30,NET_Y(),TOKZ(0)-18),t:'Transformer LLM',s:'attention over image + text tokens',ch:['def'],lift:64,side:'l',c:'var(--wN)'});
 WORDS.forEach((w,k)=>pin({at:()=>V3(TOKX[0]-30,NET_Y()+2,TOKZ(4+k)),t:w,ch:['def'],cls:'tiny',c:'var(--wN)'}));
 pin({at:()=>V3(OUTX,NET_Y()+20,0),t:'Outputs',s:'maps · detections · answers',ch:['def'],lift:36,c:'var(--green)'});
-pin({at:()=>samPin.position.clone().setY(16),t:'Point prompt',ch:['sam'],lift:36,c:'var(--glare)',when:()=>samPin.visible});
+pin({at:()=>samPin.position.clone().add(V3(0,16,0)),t:'Point prompt',ch:['sam'],lift:36,c:'var(--glare)',when:()=>samPin.visible});
 pin({at:V3(TALL.x,0,TALL.z+40),t:'Try the tower',ch:['sam'],lift:20,cls:'tiny',c:'var(--ink3)',when:()=>!SAM.masks.length&&SAM.mode==='point'});
 pin({at:V3(POND.x,0,POND.z),t:'pond',ch:['sam'],cls:'tiny',c:'var(--waterInk)',when:()=>!SAM.masks.length});
 NB.forEach(n=>{n.pin=pin({at:()=>V3(n.c[0],AG.step>=4?n.col.scale.y+6:2,n.c[1]),t:n.name,s:'',ch:['agent'],lift:AG.step>=4?26:0,cls:'tiny',c:'var(--ink2)',when:()=>AG.step>=1&&!(AG.step===5&&n.rank<3)});
@@ -1619,7 +1624,7 @@ const ENTER={
   h3(){h3SetPlay(true);HX.dirty=true;},
   skills(){skSet(SK.sel);if(AUTO){[1,2,4].forEach((k,j)=>timers.push(setTimeout(()=>{if(CH[cur].id==='skills')skSet(k,true);},3500+j*4000)));}},
   cloud(){if(AUTO){CG.z=0;$('#cg-z').value=0;cgUI();[1,2,3].forEach((z,j)=>timers.push(setTimeout(()=>{if(CH[cur].id!=='cloud')return;CG.z=z;$('#cg-z').value=z;cgUI();SFX.cue('tick',1);},3000+j*4000)));}}};
-function go(i,first){i=clamp(i,0,CH.length-1);if(i===cur&&!first)return;if(!first)SFX.cue(CH[i].id==='splat'?'rise':'chapter',i>cur?1:-1);cur=i;const c=CH[i];
+function go(i,first){i=clamp(i,0,CH.length-1);if(typeof samHover==='function')samHover(null);if(i===cur&&!first)return;if(!first)SFX.cue(CH[i].id==='splat'?'rise':'chapter',i>cur?1:-1);cur=i;const c=CH[i];
   timers.splice(0).forEach(clearTimeout);
   document.body.dataset.ch=c.id;document.body.classList.toggle('has-side',SIDE.has(c.id));
   $$('.pg').forEach(p=>p.classList.toggle('on',p.dataset.s===c.id));$$('.sd').forEach(p=>p.classList.toggle('on',p.dataset.s===c.id));
@@ -1650,12 +1655,13 @@ let AUTO=false;$('#auto').addEventListener('click',()=>{AUTO=!AUTO;$('#auto').se
 const ray=new T.Raycaster(),ndc=new T.Vector2(),gPlane=new T.Plane(V3(0,1,0),0);
 function stageXY(e){const r=stage.getBoundingClientRect();return[(e.clientX-r.left)/K,(e.clientY-r.top)/K];}
 function pickAt(e){const[sx,sy]=stageXY(e);ndc.set(sx/1920*2-1,-(sy/1080*2-1));ray.setFromCamera(ndc,cam);const id=CH[cur].id;
-  if(id==='sam'&&SAM.mode==='point'){const p=V3();if(ray.ray.intersectPlane(gPlane,p))samPoint(p.x,p.z);}
+  if(id==='sam'&&SAM.mode==='point'){const b=samRayBuilding();if(b){samPointBuilding(b);return;}const p=V3();if(ray.ray.intersectPlane(gPlane,p))samPoint(p.x,p.z);}
   else if(id==='embed'){const p=V3();if(ray.ray.intersectPlane(gPlane,p))emPickAt(p);}
   else if(id==='h3'){const inst=HX.shape==='hex'?hexInst:sqInst;const hit=ray.intersectObject(inst)[0];if(hit&&hit.instanceId!==undefined)h3Pick(hit.instanceId);}
   else if(id==='skills'){const hit=ray.intersectObjects(SKILLS.map(s=>s.m))[0];if(hit)skSet(hit.object.userData.i,true);}}
 canvas.addEventListener('pointerdown',e=>{if(!drag.touched){drag.az+=orbit;orbit=0;}drag.touched=true;drag.reset=false;drag.active=true;drag.x=drag.x0=e.clientX;drag.y=drag.y0=e.clientY;drag.moved=0;try{canvas.setPointerCapture(e.pointerId);}catch(_){}});
-canvas.addEventListener('pointermove',e=>{const[sx,sy]=stageXY(e);const id=CH[cur].id;canvas.style.cursor=(id==='sam'&&SAM.mode==='point')||id==='embed'||id==='h3'||id==='skills'?'pointer':'grab';
+canvas.addEventListener('pointermove',e=>{const[sx,sy]=stageXY(e);const id=CH[cur].id;
+  if(id==='sam'&&SAM.mode==='point'&&!drag.active){ndc.set(sx/1920*2-1,-(sy/1080*2-1));ray.setFromCamera(ndc,cam);samHover(samRayBuilding());}else if(samHov)samHover(null);canvas.style.cursor=(id==='sam'&&SAM.mode==='point')||id==='embed'||id==='h3'||id==='skills'?'pointer':'grab';
   if(!drag.active)return;drag.moved=Math.max(drag.moved,Math.hypot(e.clientX-drag.x0,e.clientY-drag.y0));if(drag.moved>5){everDragged=true;$('#dragHint').classList.remove('on');drag.az+=(e.clientX-drag.x)/K*.22;drag.el+=(e.clientY-drag.y)/K*.12;}drag.x=e.clientX;drag.y=e.clientY;});
 canvas.addEventListener('pointerup',e=>{if(drag.active&&drag.moved<=5)pickAt(e);drag.active=false;});
 canvas.addEventListener('pointercancel',()=>{drag.active=false;});
@@ -1711,7 +1717,7 @@ fit();applyTheme();spUI();agSet(0);
 const start=location.hash.slice(1);const si=CH.findIndex(c=>c.id===start);
 go(si>=0?si:0,true);if(si>0){camS.t.set(...CAMS[CH[si].id].t);Object.assign(camS,{az:CAMS[CH[si].id].az,el:CAMS[CH[si].id].el,span:CAMS[CH[si].id].span,cx:CAMS[CH[si].id].cx});camB=null;}
 requestAnimationFrame(loop);
-if(QA)window.__geo={SF,sfMode,COV,PR,prUpdate,RC,rcSet,EM,emMode,emSelect,ECELL,go,CH,SAM,samText,samPoint,AG,agSet,SP,HX,h3Pick,CG,DEF,RL,skSet,TALL};
+if(QA)window.__geo={BLDS:BLD,cam,SF,sfMode,COV,PR,prUpdate,RC,rcSet,EM,emMode,emSelect,ECELL,go,CH,SAM,samText,samPoint,AG,agSet,SP,HX,h3Pick,CG,DEF,RL,skSet,TALL};
 })();
 </script>
 
