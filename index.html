@@ -322,7 +322,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="pred" style="--c:var(--pred)">
-      <div class="mk"><span>06</span>Highlight 5 · Prediction</div>
+      <div class="mk"><span>07</span>Highlight 5 · Prediction</div>
       <h2>Forecasting<br>what's next</h2>
       <p class="lede">A <em>digital twin</em> links a 3D model of a place to live sensors. GeoAI adds the forecast: from terrain, rainfall and the river gauge's trend, where will the water be in six hours, and who lives there?</p>
       <div class="figs three">
@@ -338,7 +338,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="sf" style="--c:var(--risk)">
-      <div class="mk"><span>07</span>Case study · Springfield commuting</div>
+      <div class="mk"><span>06</span>Case study · Springfield commuting</div>
       <h2>Do embeddings<br>predict commutes?</h2>
       <p class="lede">My <em>Springfield-flow</em> project tests it on real data: 2022 Census LODES commutes between 1,431 H3 cells (about 5 km² each) in the five-county metro, with place embeddings from census (ACS), AlphaEarth and Esri added to a gravity model.</p>
       <div class="figs three">
@@ -1386,7 +1386,7 @@ h3Build();
 const SKILLS=[{t:'Spatial thinking',k:'CENTER',d:'Scale, distance, pattern and projection. It is how you tell whether an AI answer makes geographic sense.',w:'Seen today in chapter 01, what GeoAI is.',ch:'def'},
   {t:'Python',k:'CODE',d:'GeoPandas, Rasterio and PyTorch are the working tools of GeoAI. Agents write Python too, so you need to read and check it.',w:'Seen today in chapter 08, the GIS agent.',ch:'agent'},
   {t:'Remote sensing',k:'DATA',d:'Bands, resolution and sensors. Knowing what a pixel measures matters more than ever when a model labels it for you.',w:'Seen today in chapter 03, Segment Anything.',ch:'sam'},
-  {t:'Machine learning',k:'MODELS',d:'Training data, validation and bias. Learn how a model can be confidently wrong, and how to measure it.',w:'Seen today in chapter 07, Springfield commuting: spatial cross-validation.',ch:'sf'},
+  {t:'Machine learning',k:'MODELS',d:'Training data, validation and bias. Learn how a model can be confidently wrong, and how to measure it.',w:'Seen today in chapter 06, Springfield commuting: spatial cross-validation.',ch:'sf'},
   {t:'Cloud computing',k:'SCALE',d:'Earth Engine, Planetary Computer and notebooks in the browser. Bring your code to the data.',w:'Seen today in chapter 09, cloud-native formats.',ch:'cloud'},
   {t:'Databases & formats',k:'DATA',d:'SQL, PostGIS and DuckDB, plus GeoParquet and COG. Data engineering is a big share of real GeoAI work.',w:'Seen today in chapter 09, cloud-native formats.',ch:'cloud'},
   {t:'Cartography & 3D',k:'COMMUNICATE',d:'Maps are still how results reach people: hex bins, web maps and 3D scenes that a city council can read.',w:'Seen today in chapter 02, reality capture, and 05, H3.',ch:'h3'}];
@@ -1480,7 +1480,7 @@ const toastEl=$('#toast');function toast(t){toastEl.textContent=t;toastEl.classL
 
 /* ================= chapters & camera ================= */
 const CH=[{id:'cover',name:'Cover',dur:10},{id:'def',name:'What is GeoAI',dur:18},{id:'splat',name:'Reality capture',dur:34},{id:'sam',name:'Segment',dur:20},{id:'embed',name:'Embeddings',dur:24},
-  {id:'h3',name:'H3',dur:20},{id:'pred',name:'Prediction',dur:24},{id:'sf',name:'Springfield',dur:28},{id:'agent',name:'GIS agents',dur:24},{id:'cloud',name:'Cloud',dur:18},{id:'skills',name:'Careers',dur:16},{id:'end',name:'Takeaways',dur:14}];
+  {id:'h3',name:'H3',dur:20},{id:'sf',name:'Springfield',dur:28},{id:'pred',name:'Prediction',dur:24},{id:'agent',name:'GIS agents',dur:24},{id:'cloud',name:'Cloud',dur:18},{id:'skills',name:'Careers',dur:16},{id:'end',name:'Takeaways',dur:14}];
 const WASH={sf:'risk',pred:'pred',relief:'sun',def:'wN',sam:'glare',embed:'emb',agent:'wN',splat:'wS',h3:'wind',skills:'green',cloud:'waterInk'};
 const BGC={cur:null,to:new T.Color()};
 function washTarget(){const id=CH[cur]?.id;const base=new T.Color(PAL.bg);const k=WASH[id];if(k)base.lerp(new T.Color(PAL[k]),isDark()?.075:.085);return base;}
