@@ -1,5 +1,7 @@
 # Introduction to GeoAI · GIS Day 2026
 
+**▶ [Open the interactive presentation](https://shanem73.github.io/GIS-Day-2026/)**
+
 Interactive 3D presentation for GIS Day, Wednesday, November 18, 2026.
 
 **Xin (Shane) Miao, Ph.D.**, Professor, School of Earth, Environment and Sustainability (SEES), Missouri State University
