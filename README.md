@@ -20,18 +20,18 @@ Open `index.html` in a desktop browser with WebGL (Chrome or Edge recommended). 
 | --- | --- | --- |
 | 00 | Cover | Landsat 9 sweeps the town from true color to near-infrared false color |
 | 01 | What is GeoAI | Data layers, a vision encoder and a transformer with live attention |
-| 02 | Reality capture | Photogrammetry, LiDAR, NeRF, Gaussian splats and hybrids on one scene |
-| 03 | Segment Anything | Point and text prompts (SAM 3) |
-| 04 | Earth embeddings | Map, similarity search, classification and change detection |
-| 05 | H3 hexagons | A day of ride demand; equal-distance neighbors vs. squares |
-| 06 | Case study: Springfield commuting | Real 2022 LODES commutes over Ozarks relief, embedding scores on 1,431 H3 cells, and spatially blocked cross-validation ([Springfield-flow](https://github.com/ShaneM73/Springfield-flow)) |
-| 07 | Prediction | Digital-twin flood forecast with an uncertainty band |
+| 02 | Segment Anything | Point and text prompts (SAM 3) |
+| 03 | Earth embeddings | Map, similarity search, classification and change detection |
+| 04 | H3 hexagons | A day of ride demand; equal-distance neighbors vs. squares |
+| 05 | Case study: Springfield commuting | Real 2022 LODES commutes over Ozarks relief, embedding scores on 1,431 H3 cells, and spatially blocked cross-validation ([Springfield-flow](https://github.com/ShaneM73/Springfield-flow)) |
+| 06 | Digital twin | Digital-twin flood forecast with an uncertainty band |
+| 07 | Reality capture | Photogrammetry, LiDAR, NeRF, Gaussian splats and hybrids on one scene |
 | 08 | GIS agents | An LLM agent runs a five-step flood-exposure analysis |
 | 09 | Cloud | Cloud Optimized GeoTIFF tiles vs. downloading the whole file |
 | 10 | Careers | BLS outlook and a skill map |
 | 11 | Takeaways | Links to the tools in the talk |
 
-The town, sensors and data in the 3D scenes are illustrative, except chapter 06, which uses real Springfield data; each chapter's footnote cites its real sources.
+The town, sensors and data in the 3D scenes are illustrative, except chapter 05, which uses real Springfield data; each chapter's footnote cites its real sources.
 
 ## Live demo
 

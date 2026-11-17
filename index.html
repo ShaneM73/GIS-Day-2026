@@ -291,7 +291,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="sam" style="--c:var(--glare)">
-      <div class="mk"><span>03</span>Highlight 2 · Segment Anything</div>
+      <div class="mk"><span>02</span>Highlight 1 · Segment Anything</div>
       <h2>Click once,<br>get the outline</h2>
       <p class="lede">Meta's Segment Anything models cut an object out of an image from a simple prompt. <em>SAM 3</em> (November 2025) added text prompts: type a concept and every matching object is outlined. Open tools like <em>samgeo</em> bring this to satellite and drone imagery.</p>
       <div class="figs">
@@ -305,7 +305,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="embed" style="--c:var(--emb)">
-      <div class="mk"><span>04</span>Highlight 3 · Earth embeddings</div>
+      <div class="mk"><span>03</span>Highlight 2 · Earth embeddings</div>
       <h2>Every 10 m of land,<br>64 numbers</h2>
       <p class="lede">Models such as Google DeepMind's <em>AlphaEarth Foundations</em> (2025) compress what many sensors see at each patch of land over a year into one compact vector.</p>
       <div class="figs three">
@@ -322,8 +322,8 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="pred" style="--c:var(--pred)">
-      <div class="mk"><span>07</span>Highlight 5 · Prediction</div>
-      <h2>Forecasting<br>what's next</h2>
+      <div class="mk"><span>06</span>Highlight 4 · Digital twin</div>
+      <h2>A digital twin<br>forecasts what's next</h2>
       <p class="lede">A <em>digital twin</em> links a 3D model of a place to live sensors. GeoAI adds the forecast: from terrain, rainfall and the river gauge's trend, where will the water be in six hours, and who lives there?</p>
       <div class="figs three">
         <div class="fig"><div class="n">3</div><div class="l">inputs: terrain,<br>rain, gauge</div></div>
@@ -338,7 +338,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="sf" style="--c:var(--risk)">
-      <div class="mk"><span>06</span>Case study · Springfield commuting</div>
+      <div class="mk"><span>05</span>Case study · Springfield commuting</div>
       <h2>Do embeddings<br>predict commutes?</h2>
       <p class="lede">My <em>Springfield-flow</em> project tests it on real data: 2022 Census LODES commutes between 1,431 H3 cells (about 5 km² each) in the five-county metro, with place embeddings from census (ACS), AlphaEarth and Esri added to a gravity model.</p>
       <div class="figs three">
@@ -368,9 +368,9 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="splat" style="--c:var(--wS)">
-      <div class="mk"><span>02</span>Highlight 1 · Reality capture</div>
+      <div class="mk"><span>07</span>Highlight 5 · Reality capture</div>
       <h2>Photos and lasers in,<br>a 3D scene out</h2>
-      <p class="lede">Reality capture rebuilds the physical world as data. <em>Photogrammetry</em> (since 1849) and <em>LiDAR</em> (since the laser, 1960) measure it. <em>NeRF</em> (2020) and <em>3D Gaussian Splatting</em> (2023) make it look real, and splats render in real time.</p>
+      <p class="lede">A twin needs a 3D model of the real place, and reality capture builds it. <em>Photogrammetry</em> (1849) and <em>LiDAR</em> (1960) measure the world; <em>NeRF</em> (2020) and <em>Gaussian splats</em> (2023) make it look real.</p>
       <div class="figs three">
         <div class="fig"><div class="n">1849</div><div class="l">first maps made<br>from photographs</div></div>
         <div class="fig"><div class="n">2023</div><div class="l">3D Gaussian<br>Splatting</div></div>
@@ -385,7 +385,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="h3" style="--c:var(--wind)">
-      <div class="mk"><span>05</span>Highlight 4 · H3 hexagons</div>
+      <div class="mk"><span>04</span>Highlight 3 · H3 hexagons</div>
       <h2>Why Uber tiled<br>the Earth in hexagons</h2>
       <p class="lede"><em>H3</em>, open-sourced by Uber in 2018, divides the globe into hexagons. Uber built it to price rides and dispatch drivers by measuring supply and demand in each cell. It is now built into Databricks, Snowflake, DuckDB and ArcGIS Pro.</p>
       <div class="figs three">
@@ -430,12 +430,12 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
       <div class="mk"><span>11</span>Takeaways</div>
       <h2>Spatial thinking<br>is the core skill</h2>
       <div class="notes" style="margin-top:8px">
-        <div class="nt" style="--c:var(--wS)"><b>3D is getting cheap.</b>Splats for the look; LiDAR and photogrammetry for the numbers.</div>
         <div class="nt" style="--c:var(--glare)"><b>AI reads the imagery.</b>You decide what the outline means and whether it is right.</div>
         <div class="nt" style="--c:var(--emb)"><b>Embeddings replace raw pixels.</b>Search, classify and track change with ready-made vectors.</div>
         <div class="nt" style="--c:var(--wind)"><b>Grids join the world's data.</b>H3 is where GIS and data science meet.</div>
-        <div class="nt" style="--c:var(--pred)"><b>Twins forecast, not just map.</b>A good forecast gives a range, not one line.</div>
         <div class="nt" style="--c:var(--risk)"><b>Test on new places.</b>Spatial cross-validation shows whether a model travels.</div>
+        <div class="nt" style="--c:var(--pred)"><b>Twins forecast, not just map.</b>A good forecast gives a range, not one line.</div>
+        <div class="nt" style="--c:var(--wS)"><b>3D is getting cheap.</b>Splats for the look; LiDAR and photogrammetry for the numbers.</div>
         <div class="nt" style="--c:var(--wN)"><b>Language is a new interface.</b>Knowing the right analysis beats knowing the menu.</div>
         <div class="nt" style="--c:var(--ink)"><b>Work in the cloud.</b>Open data, tools and formats travel with you to any job.</div>
       </div>
@@ -1385,11 +1385,11 @@ h3Build();
 /* ================= 07 skill map ================= */
 const SKILLS=[{t:'Spatial thinking',k:'CENTER',d:'Scale, distance, pattern and projection. It is how you tell whether an AI answer makes geographic sense.',w:'Seen today in chapter 01, what GeoAI is.',ch:'def'},
   {t:'Python',k:'CODE',d:'GeoPandas, Rasterio and PyTorch are the working tools of GeoAI. Agents write Python too, so you need to read and check it.',w:'Seen today in chapter 08, the GIS agent.',ch:'agent'},
-  {t:'Remote sensing',k:'DATA',d:'Bands, resolution and sensors. Knowing what a pixel measures matters more than ever when a model labels it for you.',w:'Seen today in chapter 03, Segment Anything.',ch:'sam'},
-  {t:'Machine learning',k:'MODELS',d:'Training data, validation and bias. Learn how a model can be confidently wrong, and how to measure it.',w:'Seen today in chapter 06, Springfield commuting: spatial cross-validation.',ch:'sf'},
+  {t:'Remote sensing',k:'DATA',d:'Bands, resolution and sensors. Knowing what a pixel measures matters more than ever when a model labels it for you.',w:'Seen today in chapter 02, Segment Anything.',ch:'sam'},
+  {t:'Machine learning',k:'MODELS',d:'Training data, validation and bias. Learn how a model can be confidently wrong, and how to measure it.',w:'Seen today in chapter 05, Springfield commuting: spatial cross-validation.',ch:'sf'},
   {t:'Cloud computing',k:'SCALE',d:'Earth Engine, Planetary Computer and notebooks in the browser. Bring your code to the data.',w:'Seen today in chapter 09, cloud-native formats.',ch:'cloud'},
   {t:'Databases & formats',k:'DATA',d:'SQL, PostGIS and DuckDB, plus GeoParquet and COG. Data engineering is a big share of real GeoAI work.',w:'Seen today in chapter 09, cloud-native formats.',ch:'cloud'},
-  {t:'Cartography & 3D',k:'COMMUNICATE',d:'Maps are still how results reach people: hex bins, web maps and 3D scenes that a city council can read.',w:'Seen today in chapter 02, reality capture, and 05, H3.',ch:'h3'}];
+  {t:'Cartography & 3D',k:'COMMUNICATE',d:'Maps are still how results reach people: hex bins, web maps and 3D scenes that a city council can read.',w:'Seen today in chapter 04, H3, and 07, reality capture.',ch:'h3'}];
 const gSkill=grp('skills');const SKR=70;const SK={sel:0};
 const skGeo=new T.CylinderGeometry(SKR,SKR,1,6);skGeo.translate(0,.5,0);
 SKILLS.forEach((s,i)=>{const a=i?((i-1)/6)*Math.PI*2+Math.PI/6:0,dd=i?Math.sqrt(3)*SKR*1.08:0;const m=new T.Mesh(skGeo,mk(new T.MeshLambertMaterial({color:0xffffff}),1));m.position.set(dd*Math.sin(a),0,dd*Math.cos(a));m.rotation.y=0;m.scale.y=12;m.castShadow=true;m.receiveShadow=true;m.userData.i=i;
@@ -1479,8 +1479,8 @@ function updPins(){const id=CH[cur].id;for(const o of PINS){const on=o.ch.includ
 const toastEl=$('#toast');function toast(t){toastEl.textContent=t;toastEl.classList.add('on');clearTimeout(toastEl._t);toastEl._t=setTimeout(()=>toastEl.classList.remove('on'),2600);}
 
 /* ================= chapters & camera ================= */
-const CH=[{id:'cover',name:'Cover',dur:10},{id:'def',name:'What is GeoAI',dur:18},{id:'splat',name:'Reality capture',dur:34},{id:'sam',name:'Segment',dur:20},{id:'embed',name:'Embeddings',dur:24},
-  {id:'h3',name:'H3',dur:20},{id:'sf',name:'Springfield',dur:28},{id:'pred',name:'Prediction',dur:24},{id:'agent',name:'GIS agents',dur:24},{id:'cloud',name:'Cloud',dur:18},{id:'skills',name:'Careers',dur:16},{id:'end',name:'Takeaways',dur:14}];
+const CH=[{id:'cover',name:'Cover',dur:10},{id:'def',name:'What is GeoAI',dur:18},{id:'sam',name:'Segment',dur:20},{id:'embed',name:'Embeddings',dur:24},
+  {id:'h3',name:'H3',dur:20},{id:'sf',name:'Springfield',dur:28},{id:'pred',name:'Digital twin',dur:24},{id:'splat',name:'Reality capture',dur:34},{id:'agent',name:'GIS agents',dur:24},{id:'cloud',name:'Cloud',dur:18},{id:'skills',name:'Careers',dur:16},{id:'end',name:'Takeaways',dur:14}];
 const WASH={sf:'risk',pred:'pred',relief:'sun',def:'wN',sam:'glare',embed:'emb',agent:'wN',splat:'wS',h3:'wind',skills:'green',cloud:'waterInk'};
 const BGC={cur:null,to:new T.Color()};
 function washTarget(){const id=CH[cur]?.id;const base=new T.Color(PAL.bg);const k=WASH[id];if(k)base.lerp(new T.Color(PAL[k]),isDark()?.075:.085);return base;}
