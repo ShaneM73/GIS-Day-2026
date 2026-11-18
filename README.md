@@ -37,6 +37,13 @@ The town, sensors and data in the 3D scenes are illustrative, except chapter 05,
 
 - `demo/gisday_live_demo.js`: Earth Engine script for the live demo with real AlphaEarth embeddings around Springfield, MO. Paste it into the [Earth Engine Code Editor](https://code.earthengine.google.com/) and press Run.
 
+## Gaussian splatting demos
+
+Real captures to pair with chapter 07 (reality capture). Both open in the browser and need an internet connection.
+
+- [Esri ArcGIS Maps SDK for JavaScript: GaussianSplatLayer sample](https://developers.arcgis.com/javascript/latest/sample-code/layers-gaussiansplatlayer/): an industrial area in Vietnam, produced with ArcGIS Reality, shown as a splat layer on a 3D globe over satellite imagery and terrain.
+- [Get lost in the alleys of historical Trogir, Croatia](https://superspl.at/scene/14bac5b2) on SuperSplat: a street-level capture of a UNESCO old town, 45.8 million Gaussians, by Paolo Tosolini with an XGRIDS PortalCam (CC BY 4.0).
+
 ## License
 
 MIT. three.js r128 is © three.js authors, MIT.
