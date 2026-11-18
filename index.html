@@ -116,13 +116,16 @@ h2{font-size:50px;line-height:1.12;font-weight:400;margin:0 0 20px;letter-spacin
 .stack>div>span{font-family:var(--mono);font-size:13px;color:var(--ink3);letter-spacing:.04em}
 .stack p{margin:0;color:var(--ink)}
 .stack p i{font-style:normal;color:var(--ink3)}
-.bands{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 28px;padding:12px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.bands{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 22px;padding:12px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
 .bands .bk{font:13px var(--mono);color:var(--ink3);letter-spacing:.05em;text-transform:uppercase;width:100%}
 .bands b{font-size:20px;font-weight:500;margin-right:6px}
 .bands .bc{font:14px var(--mono);padding:4px 9px 4px 22px;position:relative;border:1px solid var(--rule);background:var(--btn)}
 .bands .bc::before{content:"";position:absolute;left:8px;top:50%;width:8px;height:8px;margin-top:-4px;background:var(--b);transition:background .6s}
-.author{display:flex;flex-direction:column;gap:3px;font-size:17px;line-height:1.45;color:var(--ink2);border-left:3px solid var(--green);padding:2px 0 2px 16px;margin:0 0 22px}
+.author{display:flex;flex-direction:column;gap:3px;font-size:17px;line-height:1.45;color:var(--ink2);border-left:3px solid var(--green);padding:2px 0 2px 16px;margin:0 0 16px}
 .author b{font-size:23px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.agenda{list-style:none;display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:5px 20px;margin:-10px 0 18px;padding:0;font-size:16.5px;line-height:1.3;color:var(--ink2)}
+.agenda li{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
+.agenda li b{font:500 13px var(--mono);color:var(--bg);background:var(--c,var(--ink));padding:2px 6px;flex:none}
 .src{position:absolute;left:0;right:0;bottom:0;font-size:13px;line-height:1.6;color:var(--ink3);margin:0}
 .hint{font-size:12.5px;line-height:1.55;color:var(--ink3);margin:6px 0 0}
 code{font-family:var(--mono);font-size:.92em}
@@ -266,7 +269,15 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     <section class="pg" data-s="cover" style="--c:var(--accent)">
       <div class="mk"><span>00</span>GIS Day · Wednesday, November 18, 2026</div>
       <h1>Introduction<br>to GeoAI</h1>
-      <p class="lede">Six ideas changing how we read the Earth from images, maps and data, and what they mean for a career in geospatial science.</p>
+      <p class="lede">Six ideas changing how we read the Earth, one Springfield case study, and what they mean for your career.</p>
+      <ol class="agenda" aria-label="The six highlights">
+        <li style="--c:var(--glare)"><b>1</b>Segment Anything</li>
+        <li style="--c:var(--emb)"><b>2</b>Earth embeddings</li>
+        <li style="--c:var(--wind)"><b>3</b>H3 hexagons</li>
+        <li style="--c:var(--pred)"><b>4</b>Digital twin + reality capture</li>
+        <li style="--c:var(--wN)"><b>5</b>GIS agents</li>
+        <li style="--c:var(--wS)"><b>6</b>Cloud and open data</li>
+      </ol>
       <div class="bands" aria-live="polite"><span class="bk">Satellite view · vegetation turns red in near-infrared</span><b id="cv-mode">True color</b>
         <span class="bc" id="cv-r" style="--b:#E5432A">R · Red</span><span class="bc" id="cv-g" style="--b:#3E9A3A">G · Green</span><span class="bc" id="cv-b" style="--b:#2D6FE0">B · Blue</span></div>
       <div class="author">
@@ -356,7 +367,7 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
     </section>
 
     <section class="pg" data-s="agent" style="--c:var(--wN)">
-      <div class="mk"><span>08</span>Highlight 6 · GIS agents</div>
+      <div class="mk"><span>08</span>Highlight 5 · GIS agents</div>
       <h2>Ask a question,<br>get an analysis</h2>
       <p class="lede">Large language model agents turn a plain-language request into a GIS workflow. They choose the tools, write the code, run it and report back. <em>GIS Copilot</em> (Penn State, 2024) builds one into QGIS.</p>
       <div class="figs">
@@ -369,8 +380,8 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
       <p class="src">Akinboyewa, Li, Ning &amp; Lessani (2024), GIS Copilot: Towards an Autonomous GIS Agent for Spatial Analysis. Neighborhoods, elevation and population are synthetic; the analysis runs on them live.</p>
     </section>
 
-    <section class="pg" data-s="splat" style="--c:var(--wS)">
-      <div class="mk"><span>07</span>Highlight 5 · Reality capture</div>
+    <section class="pg" data-s="splat" style="--c:var(--pred)">
+      <div class="mk"><span>07</span>Highlight 4 · Side story: reality capture</div>
       <h2>Photos and lasers in,<br>a 3D scene out</h2>
       <p class="lede">A twin needs a 3D model of the real place, and reality capture builds it. <em>Photogrammetry</em> (1849) and <em>LiDAR</em> (1960) measure the world; <em>NeRF</em> (2020) and <em>Gaussian splats</em> (2023) make it look real.</p>
       <div class="figs three">
@@ -414,8 +425,8 @@ input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;bac
       <p class="src">U.S. Bureau of Labor Statistics, Occupational Outlook Handbook: Cartographers and Photogrammetrists (median $81,390). The skill map is the speaker's recommendation.</p>
     </section>
 
-    <section class="pg" data-s="cloud" style="--c:var(--ink)">
-      <div class="mk"><span>09</span>The big picture</div>
+    <section class="pg" data-s="cloud" style="--c:var(--wS)">
+      <div class="mk"><span>09</span>Highlight 6 · Cloud and open data</div>
       <h2>Open, online<br>and fast</h2>
       <p class="lede">Analysis is moving to where the data lives. Cloud-native formats let you read only the piece you need over the web instead of downloading whole files.</p>
       <div class="stack">

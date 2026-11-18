@@ -18,16 +18,16 @@ Open `index.html` in a desktop browser with WebGL (Chrome or Edge recommended). 
 
 | # | Chapter | Interactive demo |
 | --- | --- | --- |
-| 00 | Cover | Landsat 9 sweeps the town from true color to near-infrared false color |
+| 00 | Cover | Landsat 9 sweeps the town from true color to near-infrared false color; the six highlights at a glance |
 | 01 | What is GeoAI | Data layers, a vision encoder and a transformer with live attention |
-| 02 | Segment Anything | Point and text prompts (SAM 3) |
-| 03 | Earth embeddings | Map, similarity search, classification and change detection |
-| 04 | H3 hexagons | A day of ride demand; equal-distance neighbors vs. squares |
+| 02 | Highlight 1 · Segment Anything | Point and text prompts (SAM 3) |
+| 03 | Highlight 2 · Earth embeddings | Map, similarity search, classification and change detection |
+| 04 | Highlight 3 · H3 hexagons | A day of ride demand; equal-distance neighbors vs. squares |
 | 05 | Case study: Springfield commuting | Real 2022 LODES commutes over Ozarks relief, embedding scores on 1,431 H3 cells, and spatially blocked cross-validation ([Springfield-flow](https://github.com/ShaneM73/Springfield-flow)) |
-| 06 | Digital twin | Digital-twin flood forecast with an uncertainty band |
-| 07 | Reality capture | Photogrammetry, LiDAR, NeRF, Gaussian splats and hybrids on one scene |
-| 08 | GIS agents | An LLM agent runs a five-step flood-exposure analysis |
-| 09 | Cloud | Cloud Optimized GeoTIFF tiles vs. downloading the whole file |
+| 06 | Highlight 4 · Digital twin | Digital-twin flood forecast with an uncertainty band |
+| 07 | Side story to highlight 4 · Reality capture | Photogrammetry, LiDAR, NeRF, Gaussian splats and hybrids on one scene |
+| 08 | Highlight 5 · GIS agents | An LLM agent runs a five-step flood-exposure analysis |
+| 09 | Highlight 6 · Cloud and open data | Cloud Optimized GeoTIFF tiles vs. downloading the whole file |
 | 10 | Careers | BLS outlook and a skill map |
 | 11 | Takeaways | Links to the tools in the talk |
 
